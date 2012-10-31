@@ -1,0 +1,53 @@
+"James' vimrc
+
+"Pathogen it up
+call pathogen#infect()
+
+set background=light
+colorscheme solarized
+
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+set wildmode=list:longest,full
+
+" Replace word under cursor using \s
+:nnoremap <Leader>s :%s/\<<C-r><C-w>\>/
+
+" Strip trailing whitespace on save
+autocmd BufWritePre * :%s/\s\+$//e
+
+function! HighlightTooLongLines()
+  highlight def link RightMargin Error
+  if &textwidth != 0
+    exec ('match RightMargin /\%<' . (&textwidth + 3) . 'v.\%>' . (&textwidth + 1) . 'v/')
+  endif
+endfunction
+
+augroup filetypedetect
+au WinEnter,BufNewFile,BufRead * call HighlightTooLongLines()
+augroup END
+
+" Comment-region with ,c uncomment-region with ,u
+au FileType haskell,vhdl,ada let b:comment_leader = '-- '
+au FileType vim let b:comment_leader = '" '
+au FileType c,cpp,java let b:comment_leader = '// '
+au FileType sh,make let b:comment_leader = '# '
+au FileType tex let b:comment_leader = '% '
+noremap <silent> ,c :<C-B>sil <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:noh<CR>
+noremap <silent> ,u :<C-B>sil <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:noh<CR>
+
+" Change directory on buffer open
+au BufEnter * silent! lcd %:p:h
+
+" Change directory in netrw, too
+let g:netrw_keepdir=0
+
+filetype plugin on
+set ofu=syntaxcomplete$Complete
+
+
+" Save swap files in ~/tmp
+set directory=~/tmp
+
+source ~/.vim/plugins/a.vim
