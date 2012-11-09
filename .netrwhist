@@ -1,5 +1,5 @@
 let g:netrw_dirhistmax  =10
 let g:netrw_dirhist_cnt =3
-let g:netrw_dirhist_1='/home/jswetnam/clients/napa-2/google3'
-let g:netrw_dirhist_2='/home/jswetnam/.vim'
-let g:netrw_dirhist_3='/home/jswetnam/.vim/snippets'
+let g:netrw_dirhist_1='/home/jswetnam/clients/napa-2/google3/cloud/exacycle/projects/napa/pipeline'
+let g:netrw_dirhist_2='/home/jswetnam/clients/napa-2/google3/cloud/exacycle/projects/napa'
+let g:netrw_dirhist_3='/home/jswetnam/clients/napa-2/google3/cloud/exacycle/projects/napa/proto'
