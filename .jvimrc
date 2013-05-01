@@ -1,10 +1,18 @@
 "James' vimrc
 
-"Pathogen it up
-call pathogen#infect()
+set nocompatible
+filetype plugin on
 
-set background=dark
-colorscheme solarized
+" Vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'molokai'
+Bundle 'SQLUtilities'
+Bundle 'Align'
+
+colorscheme molokai
 
 set expandtab
 set shiftwidth=2
@@ -32,7 +40,7 @@ augroup END
 au FileType haskell,vhdl,ada let b:comment_leader = '-- '
 au FileType vim let b:comment_leader = '" '
 au FileType c,cpp,java let b:comment_leader = '// '
-au FileType sh,make let b:comment_leader = '# '
+au FileType sh,make,py let b:comment_leader = '# '
 au FileType tex let b:comment_leader = '% '
 noremap <silent> ,c :<C-B>sil <C-E>s/^/<C-R>=escape(b:comment_leader,'\/')<CR>/<CR>:noh<CR>
 noremap <silent> ,u :<C-B>sil <C-E>s/^\V<C-R>=escape(b:comment_leader,'\/')<CR>//e<CR>:noh<CR>
@@ -43,7 +51,6 @@ au BufEnter * silent! lcd %:p:h
 " Change directory in netrw, too
 let g:netrw_keepdir=0
 
-filetype plugin on
 set ofu=syntaxcomplete$Complete
 
 
@@ -51,3 +58,14 @@ set ofu=syntaxcomplete$Complete
 set directory=~/tmp
 
 source ~/.vim/plugins/a.vim
+
+" Close braces
+
+inoremap {      {}<Left>
+inoremap {<CR>  {<CR>}<Esc>O
+inoremap {{     {
+inoremap {}     {}
+
+" No Backup
+set nobackup
+set noswapfile
