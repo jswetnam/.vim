@@ -3,9 +3,6 @@
 "Pathogen it up
 call pathogen#infect()
 
-set background=dark
-colorscheme solarized
-
 set nobackup
 set nowritebackup
 set noswapfile
