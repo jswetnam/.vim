@@ -2,7 +2,11 @@
 
 syntax on
 set nocompatible
-filetype plugin on
+filetype plugin indent on
+
+set expandtab
+set shiftwidth=2
+set softtabstop=2
 
 " Vundle
 set rtp+=~/.vim/bundle/vundle/
