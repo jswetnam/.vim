@@ -7,15 +7,17 @@ filetype plugin indent on
 set expandtab
 set shiftwidth=2
 set softtabstop=2
+set number
 
 " Vundle
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+Bundle 'Align'
+Bundle 'SQLUtilities'
+Bundle 'einars/js-beautify'
 Bundle 'gmarik/vundle'
 Bundle 'molokai'
-Bundle 'SQLUtilities'
-Bundle 'Align'
 
 colorscheme molokai
 set expandtab
@@ -35,7 +37,7 @@ function! HighlightTooLongLines()
 endfunction
 
 augroup filetypedetect
-au WinEnter,BufNewFile,BufRead * call HighlightTooLongLines()
+  au WinEnter,BufNewFile,BufRead * call HighlightTooLongLines()
 augroup END
 
 " Comment-region with ,c uncomment-region with ,u
