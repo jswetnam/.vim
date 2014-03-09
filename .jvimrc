@@ -17,6 +17,7 @@ Bundle 'Align'
 Bundle 'SQLUtilities'
 Bundle 'einars/js-beautify'
 Bundle 'gmarik/vundle'
+Bundle 'tpope/vim-surround'
 Bundle 'molokai'
 
 colorscheme molokai
